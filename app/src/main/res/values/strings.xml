@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">KanjiTest</string>
+
+    <style name="tab_txt" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>

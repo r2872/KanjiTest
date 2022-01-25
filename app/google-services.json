@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1089583564175",
+    "project_id": "kanjitest-f3e46",
+    "storage_bucket": "kanjitest-f3e46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089583564175:android:bd83c00c3cbfb7d46b77fa",
+        "android_client_info": {
+          "package_name": "com.example.kanjitest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089583564175-9bd4ko8vjbqtrd2tmeluenut51gen446.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCc6G9XcfGuAtCzoBaw3u7EkhVAdQGv70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089583564175-9bd4ko8vjbqtrd2tmeluenut51gen446.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
