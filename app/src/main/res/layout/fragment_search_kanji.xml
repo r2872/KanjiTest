@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
+            android:hint="검색 할 한자의 문자나 음을 입력 해 주세요"
             android:id="@+id/search_edt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

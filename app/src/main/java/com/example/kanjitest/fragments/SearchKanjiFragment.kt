@@ -3,6 +3,7 @@ package com.example.kanjitest.fragments
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kanjitest.adapters.KanjiSearchListAdapter
 import com.example.kanjitest.databinding.FragmentSearchKanjiBinding
 import com.example.kanjitest.datas.KanjiData
@@ -45,12 +47,6 @@ class SearchKanjiFragment : BaseFragment() {
         setupEvents()
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        hideKeyboard()
-    }
-
     override fun setupEvents() {
 
         binding.searchImg.setOnClickListener {
@@ -60,9 +56,19 @@ class SearchKanjiFragment : BaseFragment() {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 searchKanji()
                 true
-            }
-            else false
+            } else false
         }
+
+        binding.searchRecyclerView.addOnItemTouchListener(object :
+            RecyclerView.OnItemTouchListener {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                hideKeyboard()
+                return false
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
+        })
     }
 
     override fun setValues() {
@@ -115,10 +121,30 @@ class SearchKanjiFragment : BaseFragment() {
             img = jsonObj.getString("img")
             isChecked = jsonObj.getString("checked")
             val meanPix = mean.replace(" ", "")
-            if (title.contains(inputText) || meanPix.contains(inputText)) {
-                viewModel.addSearchList(
-                    KanjiData(title, radical, mean, writeCount, img, isChecked)
-                )
+            val splitSlash = meanPix.split("/")
+            val splitComma = meanPix.split(",")
+            for (e in splitSlash.indices) {
+
+                if (splitSlash[e].endsWith(inputText)) {
+
+                    viewModel.addSearchList(
+                        KanjiData(title, radical, mean, writeCount, img, isChecked)
+                    )
+                    break
+
+                } else {
+                    for (p in splitComma.indices) {
+                        if (splitComma[p].endsWith(inputText)) {
+
+                            viewModel.addSearchList(
+                                KanjiData(title, radical, mean, writeCount, img, isChecked)
+                            )
+
+                            break
+                        }
+                    }
+                }
+
             }
         }
 
@@ -142,7 +168,7 @@ class SearchKanjiFragment : BaseFragment() {
             Toast.makeText(mContext, "검색 할 단어를 입력 해 주세요", Toast.LENGTH_SHORT).show()
             return
         } else {
-            val inputText = binding.searchEdt.text.toString()
+            val inputText = binding.searchEdt.text.toString().replace(" ", "")
             readJsonInStorage(inputText)
             val result = viewModel.getSearchLList()
             if (result.isEmpty()) {
