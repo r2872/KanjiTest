@@ -4,4 +4,7 @@
     <style name="tab_txt" parent="TextAppearance.AppCompat">
         <item name="android:textSize">12sp</item>
     </style>
+    <string name="ad_banner">ca-app-pub-9152149294079426/6412150519</string>
+    <string name="ad_id">ca-app-pub-9152149294079426~1772205534</string>
+    <string name="ad_banner_test">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

@@ -7,12 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1089583564175:android:bd83c00c3cbfb7d46b77fa",
+        "mobilesdk_app_id": "1:1089583564175:android:8d3715368544dd6e6b77fa",
         "android_client_info": {
-          "package_name": "com.example.kanjitest"
+          "package_name": "com.autopro.kanjitest"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1089583564175-gmbmefa0ige1nknlmau1mamse35mvio9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopro.kanjitest",
+            "certificate_hash": "7477ed816036d3187440903ca9e92fc900ec5c90"
+          }
+        },
+        {
+          "client_id": "1089583564175-la3fu8nrl6ggc6q22pugeqjs21q1omiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopro.kanjitest",
+            "certificate_hash": "66bb139c57697c982a0714c3b0b705776d5049b6"
+          }
+        },
         {
           "client_id": "1089583564175-9bd4ko8vjbqtrd2tmeluenut51gen446.apps.googleusercontent.com",
           "client_type": 3
