@@ -146,6 +146,11 @@ class SearchKanjiFragment : BaseFragment() {
                 }
 
             }
+            if (title == inputText) {
+                viewModel.addSearchList(
+                    KanjiData(title, radical, mean, writeCount, img, isChecked)
+                )
+            }
         }
 
         return result
