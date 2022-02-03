@@ -20,7 +20,6 @@ class CanvasDialog : DialogFragment() {
 //            })
 
 //        val alertDialog = mBuilder.show()
-
         return mBuilder.create()
     }
 

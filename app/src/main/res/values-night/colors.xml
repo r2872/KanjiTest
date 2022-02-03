@@ -5,9 +5,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="gray">#808080</color>
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
+    <color name="gray">#C1C1C1</color>
     <color name="very_peri">#6667ab</color>
-    <color name="cardView_background">#f7f2f3</color>
+    <color name="cardView_background">#877C7E</color>
 </resources>

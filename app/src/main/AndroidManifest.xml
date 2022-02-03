@@ -15,22 +15,29 @@
         android:theme="@style/Theme.KanjiTest">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ad_id"/>
+            android:value="@string/ad_id" />
+
         <activity
             android:name="com.autopro.kanjitest.KanjiDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
         <activity
             android:name="com.autopro.kanjitest.KanjiClassActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
-        <activity android:name="com.autopro.kanjitest.SplashActivity"
-            android:exported="true">
+        <activity
+            android:name="com.autopro.kanjitest.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.autopro.kanjitest.MainActivity" />
+        <activity
+            android:name="com.autopro.kanjitest.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

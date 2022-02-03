@@ -31,7 +31,6 @@ internal class CanvasView(context: Context?) : View(context) {
             }
         }
 
-
         invalidate() // 화면을 다시그려라
         return true
 

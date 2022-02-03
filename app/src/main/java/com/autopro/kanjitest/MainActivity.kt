@@ -41,7 +41,7 @@ class MainActivity : BaseActivity() {
         binding.mainTabLayout.apply {
             getTabAt(0)?.setIcon(R.drawable.kanji)?.text = "급수 별 한자"
             getTabAt(1)?.setIcon(R.drawable.ic_baseline_search_24)?.text = "검색"
-            getTabAt(2)?.setIcon(R.drawable.ic_baseline_menu_24)?.text = "메뉴"
+            getTabAt(2)?.setIcon(R.drawable.ic_baseline_info_24)?.text = "앱 정보"
         }
         binding.mainTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {

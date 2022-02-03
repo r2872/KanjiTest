@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.autopro.kanjitest.R
 import com.autopro.kanjitest.adapters.KanjiSearchListAdapter
 import com.autopro.kanjitest.databinding.FragmentSearchKanjiBinding
+import com.autopro.kanjitest.datas.KanjiClassData
 import com.autopro.kanjitest.datas.KanjiData
 import com.autopro.kanjitest.viewmodels.MainViewModel
 import org.json.JSONArray

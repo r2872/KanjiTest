@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="5dp"
-        android:textColor="@color/gray"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@id/study_progressBar"
         app:layout_constraintEnd_toEndOf="parent"

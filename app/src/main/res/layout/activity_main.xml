@@ -19,12 +19,18 @@
         android:background="@color/gray" />
 
     <com.google.android.material.tabs.TabLayout
+        android:background="@color/white"
         android:id="@+id/mainTabLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
         app:tabTextAppearance="@style/tab_txt" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"

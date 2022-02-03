@@ -63,32 +63,40 @@ class KanjiClassListAdapter(
 
             backgroundLayout.setOnClickListener {
 
-                val customView =
-                    LayoutInflater.from(mContext).inflate(R.layout.custom_alert_kanji_detail, null)
-                val myAlert = AlertDialog.Builder(mContext)
-                    .setView(customView)
-                    .show()
-                val randomBtn =
-                    customView.findViewById<Button>(R.id.random_btn).setOnClickListener {
+                val list = ArrayList<KanjiData>()
+                list.addAll(item.detail)
 
-                        val random = Random()
-                        val intent = Intent(mContext, KanjiDetailActivity::class.java)
-                        intent.putExtra("kanjiListData", item)
-                        intent.putExtra("classNum", className)
-                        intent.putExtra("clickedPosition", random.nextInt(item.detail.size + 1))
-                        mContext.startActivity(intent)
-                        myAlert.dismiss()
-                    }
-                val listBtn = customView.findViewById<Button>(R.id.list_btn).setOnClickListener {
-                    val list = ArrayList<KanjiData>()
-                    list.addAll(item.detail)
+                val intent = Intent(mContext, KanjiClassActivity::class.java)
+                intent.putExtra("kanjiClassName", list)
+                intent.putExtra("classNum", className)
+                mContext.startActivity(intent)
 
-                    val intent = Intent(mContext, KanjiClassActivity::class.java)
-                    intent.putExtra("kanjiClassName", list)
-                    intent.putExtra("classNum", className)
-                    mContext.startActivity(intent)
-                    myAlert.dismiss()
-                }
+//                val customView =
+//                    LayoutInflater.from(mContext).inflate(R.layout.custom_alert_kanji_detail, null)
+//                val myAlert = AlertDialog.Builder(mContext)
+//                    .setView(customView)
+//                    .show()
+//                val randomBtn =
+//                    customView.findViewById<Button>(R.id.random_btn).setOnClickListener {
+//
+//                        val random = Random()
+//                        val intent = Intent(mContext, KanjiDetailActivity::class.java)
+//                        intent.putExtra("kanjiListData", item)
+//                        intent.putExtra("classNum", className)
+//                        intent.putExtra("clickedPosition", random.nextInt(item.detail.size + 1))
+//                        mContext.startActivity(intent)
+//                        myAlert.dismiss()
+//                    }
+//                val listBtn = customView.findViewById<Button>(R.id.list_btn).setOnClickListener {
+//                    val list = ArrayList<KanjiData>()
+//                    list.addAll(item.detail)
+//
+//                    val intent = Intent(mContext, KanjiClassActivity::class.java)
+//                    intent.putExtra("kanjiClassName", list)
+//                    intent.putExtra("classNum", className)
+//                    mContext.startActivity(intent)
+//                    myAlert.dismiss()
+//                }
             }
         }
     }
