@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -21,7 +20,6 @@ class KanjiDetailActivity : BaseActivity() {
     private lateinit var binding: ActivityKanjiDetailBinding
     private lateinit var mAdapter: KanjiDetailAdapter
     private var position = 0
-    private var mToast: Toast? = null
     private lateinit var mPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +43,10 @@ class KanjiDetailActivity : BaseActivity() {
         binding.settingBtn.setOnClickListener {
             viewSet()
         }
+        binding.canvasBtn.setOnClickListener {
+            createAlertCanvas()
+        }
+
     }
 
     override fun setValues() {
@@ -67,16 +69,6 @@ class KanjiDetailActivity : BaseActivity() {
 
         setAdBanner()
 
-    }
-
-    private fun shortToast(message: String) {
-
-        if (mToast == null) {
-            mToast = Toast.makeText(mContext, message, Toast.LENGTH_SHORT)
-        } else {
-            mToast!!.setText(message)
-        }
-        mToast?.show()
     }
 
     private fun setAdBanner() {
@@ -123,6 +115,12 @@ class KanjiDetailActivity : BaseActivity() {
                 mAdapter.notifyDataSetChanged()
             }
             .show()
+    }
+
+    private fun createAlertCanvas() {
+        val myAlert = CanvasDialog()
+        myAlert.show(supportFragmentManager, null)
+
     }
 
 }

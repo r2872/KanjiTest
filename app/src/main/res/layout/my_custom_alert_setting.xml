@@ -24,6 +24,6 @@
             android:id="@+id/viewKanjiOnly_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="화면을 눌렀을때만 상세 보기" />
+            android:text="화면을 터치해서 정답 보기" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

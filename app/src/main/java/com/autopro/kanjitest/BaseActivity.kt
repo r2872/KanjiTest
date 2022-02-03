@@ -3,10 +3,11 @@ package com.autopro.kanjitest
 import android.content.Context
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.autopro.kanjitest.viewmodels.MainViewModel
 import com.google.android.gms.ads.AdRequest
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,7 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var mAdRequest: AdRequest
     lateinit var mAuth: FirebaseAuth
     lateinit var mDatabase: DatabaseReference
+    lateinit var randomTest: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,7 @@ abstract class BaseActivity : AppCompatActivity() {
         kanjiClassText =
             defActionBar.customView.findViewById(R.id.kanjiClass_txt)
         backButton = defActionBar.customView.findViewById(R.id.back_img)
+        randomTest = defActionBar.customView.findViewById(R.id.randomTest)
     }
 
     fun getJson(): JSONObject {

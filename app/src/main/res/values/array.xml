@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_item">
+        <item>음 으로 검색</item>
+        <item>훈 으로 검색</item>
+    </string-array>
+</resources>

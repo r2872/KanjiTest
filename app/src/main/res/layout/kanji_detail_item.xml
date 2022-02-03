@@ -16,74 +16,81 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/checked_img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="0.1"
-            android:src="@drawable/ic_baseline_star_outline_24"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:gravity="center"
-            android:id="@+id/title_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:textSize="64sp"
-            android:textStyle="bold"
-            tools:text="甘" />
-
-        <TextView
-            android:gravity="center"
-            android:id="@+id/mean_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.8"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="달 감" />
-
         <LinearLayout
-            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/checked_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_star_outline_24" />
 
             <TextView
-                android:id="@+id/radical_txt"
-                android:layout_width="0dp"
+                android:id="@+id/title_txt"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:text="부수: 甘" />
-
-            <TextView
-                android:id="@+id/writeCount_txt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:text="획수: 3획" />
+                android:textSize="64sp"
+                android:textStyle="bold"
+                tools:text="甘" />
 
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10" />
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mean_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="달 감" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/radical_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:text="부수: 甘" />
+
+                <TextView
+                    android:id="@+id/writeCount_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:text="획수: 3획" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

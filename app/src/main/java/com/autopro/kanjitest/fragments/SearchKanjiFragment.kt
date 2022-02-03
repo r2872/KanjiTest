@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.autopro.kanjitest.R
 import com.autopro.kanjitest.adapters.KanjiSearchListAdapter
 import com.autopro.kanjitest.databinding.FragmentSearchKanjiBinding
 import com.autopro.kanjitest.datas.KanjiData
@@ -25,6 +28,7 @@ class SearchKanjiFragment : BaseFragment() {
 
     private lateinit var binding: FragmentSearchKanjiBinding
     private lateinit var mAdapter: KanjiSearchListAdapter
+    private var mCheckSearchType = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,6 +76,8 @@ class SearchKanjiFragment : BaseFragment() {
     }
 
     override fun setValues() {
+
+        setSpinner()
 
         mAdapter = KanjiSearchListAdapter(mContext, viewModel.getSearchLList())
         binding.searchRecyclerView.adapter = mAdapter
@@ -123,28 +129,60 @@ class SearchKanjiFragment : BaseFragment() {
             val meanPix = mean.replace(" ", "")
             val splitSlash = meanPix.split("/")
             val splitComma = meanPix.split(",")
-            for (e in splitSlash.indices) {
+            if (mCheckSearchType) {
 
-                if (splitSlash[e].endsWith(inputText)) {
+                for (e in splitSlash.indices) {
 
-                    viewModel.addSearchList(
-                        KanjiData(title, radical, mean, writeCount, img, isChecked)
-                    )
-                    break
+                    if (splitSlash[e].endsWith(inputText)) {
 
-                } else {
-                    for (p in splitComma.indices) {
-                        if (splitComma[p].endsWith(inputText)) {
+                        viewModel.addSearchList(
+                            KanjiData(title, radical, mean, writeCount, img, isChecked)
+                        )
+                        break
 
-                            viewModel.addSearchList(
-                                KanjiData(title, radical, mean, writeCount, img, isChecked)
-                            )
+                    } else {
+                        for (p in splitComma.indices) {
+                            if (splitComma[p].endsWith(inputText)) {
 
-                            break
+                                viewModel.addSearchList(
+                                    KanjiData(title, radical, mean, writeCount, img, isChecked)
+                                )
+
+                                break
+                            }
                         }
                     }
-                }
 
+                }
+            } else {
+                for (e in splitSlash.indices) {
+
+                    val subtract = splitSlash[e].substring(0, splitSlash[e].length - 1)
+
+                    if (subtract.contains(inputText)) {
+
+                        viewModel.addSearchList(
+                            KanjiData(title, radical, mean, writeCount, img, isChecked)
+                        )
+                        break
+
+                    } else {
+                        for (p in splitComma.indices) {
+
+                            val subtract = splitComma[p].substring(0, splitComma[p].length - 1)
+
+                            if (subtract.contains(inputText)) {
+
+                                viewModel.addSearchList(
+                                    KanjiData(title, radical, mean, writeCount, img, isChecked)
+                                )
+
+                                break
+                            }
+                        }
+                    }
+
+                }
             }
             if (title == inputText) {
                 viewModel.addSearchList(
@@ -180,6 +218,42 @@ class SearchKanjiFragment : BaseFragment() {
                 Toast.makeText(mContext, "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show()
             }
             hideKeyboard()
+        }
+    }
+
+    private fun setSpinner() {
+        val mySpinner = binding.spinner
+        val adapter = ArrayAdapter.createFromResource(
+            mContext,
+            R.array.spinner_item,
+            android.R.layout.simple_spinner_dropdown_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        mySpinner.adapter = adapter
+
+        mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> {
+                        binding.searchEdt.hint = "검색 할 한자의 음 을 입력 해 주세요"
+                        mCheckSearchType = true
+                    }
+                    else -> {
+                        binding.searchEdt.hint = "검색 할 한자의 훈 을 입력 해 주세요"
+                        mCheckSearchType = false
+                    }
+                }
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
         }
     }
 }

@@ -32,6 +32,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <TextView
+            android:id="@+id/canvas_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/item_background_rect"
+            android:padding="5dp"
+            android:text="한자 써보기"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/setting_btn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -40,6 +54,5 @@
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
         ads:adUnitId="@string/ad_banner_test" />
-
 
 </LinearLayout>
